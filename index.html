@@ -143,15 +143,19 @@
     </div>
   </footer>
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    //document.getElementById('year').textContent = new Date().getFullYear();
     function sendSMS() {
-      const name=document.getElementById('name').value.trim();
-      const contact=document.getElementById('contactInfo').value.trim();
-      const city=document.getElementById('city').value.trim();
-      const needs=document.getElementById('needs').value.trim();
-      const lines=["Olá! Gostaria de um orçamento de limpeza.", name? "Nome: "+name:null, contact? "Contato: "+contact:null, city? "Cidade: "+city:null, needs? "Necessidade: "+needs:null].filter(Boolean);
-      const body=encodeURIComponent(lines.join("\n"));
-      window.location.href="sms:+19598671365?&body="+body;
+        const name = document.getElementById('name').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const needs = document.getElementById('needs').value.trim();
+        const lines = [
+            "Hi! I would like a cleaning quote.",
+            name ? "Name: " + name : null,
+            city ? "City: " + city : null,
+            needs ? "Needs: " + needs : null
+        ].filter(Boolean);
+        const body = encodeURIComponent(lines.join("\n"));
+        window.location.href = "sms:+19598671365?&body=" + body;
     }
   </script>
 </body>
